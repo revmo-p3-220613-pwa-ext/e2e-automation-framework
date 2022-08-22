@@ -13,7 +13,8 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-@CucumberOptions(glue="com.revature.steps", features={"src/test/resources/login.feature"})
+@CucumberOptions(glue="com.revature.steps", features={"src/test/resources/login.feature", "src/test/resources/clickEditUserInfo.feature",
+"src/test/resources/editUsersInfo.feature"})
 public class TestRunner extends AbstractTestNGCucumberTests {
 
     public static WebDriver driver;
