@@ -15,9 +15,6 @@ public class UserPage {
     private WebDriver driver;
     private WebDriverWait wdw;
 
-    @FindBy(id="view-account-1")
-    private WebElement account1;
-
     @FindBy(id="name")
     private WebElement name;
 
@@ -32,6 +29,9 @@ public class UserPage {
 
     @FindBy(id="hello")
     private WebElement hello;
+
+    @FindBy(id="1")
+    private WebElement account1;
 
     public UserPage(WebDriver driver) {
         this.driver = driver;
@@ -54,6 +54,10 @@ public class UserPage {
     public void clickEditUserInfoButton() {
         wdw.until(ExpectedConditions.elementToBeClickable(editUserInfoButton));
         editUserInfoButton.click();
+    }
+
+    public void clickAccount1() {
+        account1.click();
     }
 
 }

@@ -15,7 +15,7 @@ import java.time.Duration;
 
 @CucumberOptions(glue="com.revature.steps", features={"src/test/resources/login.feature",
         "src/test/resources/clickEditUserInfo.feature", "src/test/resources/editUsersInfo.feature",
-"src/test/resources/navigateToLogin.feature"})
+"src/test/resources/navigateToLogin.feature", "src/test/resources/viewAccount.feature"})
 public class TestRunner extends AbstractTestNGCucumberTests {
 
     public static WebDriver driver;
