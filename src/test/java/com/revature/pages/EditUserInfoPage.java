@@ -32,19 +32,17 @@ public class EditUserInfoPage {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
         PageFactory.initElements(driver, this);
-        Thread.sleep(2000);
     }
 
     public void inputNewEmail(String email) throws InterruptedException {
         emailInput.clear();
         emailInput.sendKeys(email);
-        Thread.sleep(2000);
     }
 
     public void inputNewPhone(String phone) throws InterruptedException {
+        Thread.sleep(2000);
         phoneInput.clear();
         phoneInput.sendKeys(phone);
-        Thread.sleep(2000);
     }
 
     public void clickSubmit() {

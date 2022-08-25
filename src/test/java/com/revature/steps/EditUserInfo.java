@@ -18,7 +18,6 @@ public class EditUserInfo {
     public EditUserInfoPage editUserInfoPage;
 
     @And("I am on my user page")
-    @Test(dependsOnGroups = "login")
     public void iAmOnMyUserPage() throws InterruptedException {
         userPage = new UserPage(TestRunner.driver);
         userPage.getHello();
@@ -54,5 +53,12 @@ public class EditUserInfo {
     @Then("I am redirected to my user page with new information")
     public void iAmRedirectedToMyUserPageWithNewInformation() {
         userPage.getHello();
+    }
+
+    @Given("I am at the edit user info page")
+    public void iAmAtTheEditUserInfoPage() throws InterruptedException {
+        userPage = new UserPage(TestRunner.driver);
+        userPage.clickEditUserInfoButton();
+        editUserInfoPage = new EditUserInfoPage(TestRunner.driver);
     }
 }
