@@ -1,5 +1,6 @@
 package com.revature.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,6 +36,13 @@ public class UserPage {
     public UserPage(WebDriver driver) {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
+        HomePage homePage = new HomePage(driver);
+        homePage.clickBurger();
+        homePage.clickLogin();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeEmail("jd80@a.ca");
+        loginPage.typePassword("Password123!");
+        loginPage.clickLoginButton();
         PageFactory.initElements(driver, this);
     }
 
@@ -44,6 +52,7 @@ public class UserPage {
     }
 
     public void clickEditUserInfoButton() {
+        wdw.until(ExpectedConditions.elementToBeClickable(editUserInfoButton));
         editUserInfoButton.click();
     }
 
