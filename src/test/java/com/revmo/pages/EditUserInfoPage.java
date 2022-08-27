@@ -14,8 +14,11 @@ public class EditUserInfoPage {
     private WebDriver driver;
     private WebDriverWait wdw;
 
-    @FindBy(id="email-input")
-    private WebElement emailInput;
+    @FindBy(id="first-name-input")
+    private WebElement firstNameInput;
+
+    @FindBy(id = "last-name-input")
+    private WebElement lastNameInput;
 
     @FindBy(id="phone-input")
     private WebElement phoneInput;
@@ -26,31 +29,47 @@ public class EditUserInfoPage {
     @FindBy(id="error-msgs")
     private WebElement errorMessages;
 
+    @FindBy(id = "logout-btn")
+    private WebElement logoutButton;
+
+    @FindBy(id = "my-account")
+    private WebElement userPageButton;
+
     public EditUserInfoPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
+        UserPage userPage = new UserPage(driver);
+        userPage.clickEditUserInfoButton();
+        wdw.until(ExpectedConditions.urlContains("edit-user-info.html"));
         PageFactory.initElements(driver, this);
     }
 
-    public void inputNewEmail(String email) throws InterruptedException {
-        emailInput.clear();
-        emailInput.sendKeys(email);
+    public void typeFirstNameInput(String firstName){
+        firstNameInput.sendKeys(firstName);
     }
 
-    public void inputNewPhone(String phone) throws InterruptedException {
-        Thread.sleep(2000);
-        phoneInput.clear();
-        phoneInput.sendKeys(phone);
+    public void typeLastNameInput(String lastName){
+        lastNameInput.sendKeys(lastName);
     }
 
-    public void clickSubmit() {
+    public void typePhoneInput(String phoneNumber){
+        phoneInput.sendKeys(phoneNumber);
+    }
+
+    public void clickSubmitButton(){
         submitButton.click();
     }
 
-    public String getErrorMessages() {
+    public String getErrorMessages(){
         return errorMessages.getText();
     }
+    public void clickLogoutButton(){
+        logoutButton.click();
+    }
 
+    public void clickUserPageButton(){
+        userPageButton.click();
+    }
     public void getUrl() {
         wdw.until(ExpectedConditions.urlContains("edit-user-info"));
     }

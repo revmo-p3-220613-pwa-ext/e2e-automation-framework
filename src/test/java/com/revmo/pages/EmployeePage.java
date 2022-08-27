@@ -4,13 +4,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class EmployeePage {
     private WebDriver driver;
 
+    private WebDriverWait wdw;
+
     public EmployeePage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
+        this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeUsername("jd800@a.ca");
+        loginPage.typePassword("Password123!");
+        loginPage.clickLogin();
         PageFactory.initElements(driver, this);
+        wdw.until(ExpectedConditions.urlContains("employee.html"));
     }
 
     @FindBy(id = "email-input")
