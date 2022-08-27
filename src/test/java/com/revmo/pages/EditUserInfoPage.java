@@ -1,6 +1,6 @@
-package com.revature.pages;
+package com.revmo.pages;
 
-import com.revature.steps.EditUserInfo;
+import com.revmo.steps.EditUserInfo;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,8 +1,9 @@
-package com.revature.steps;
+package com.revmo.steps;
 
-import com.revature.pages.EditUserInfoPage;
-import com.revature.pages.UserPage;
-import com.revature.runner.TestRunner;
+import com.revmo.pages.EditUserInfoPage;
+import com.revmo.pages.UserPage;
+import com.revmo.testrunner.TestRunner;
+import com.revmo.testrunner.TestRunner;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
