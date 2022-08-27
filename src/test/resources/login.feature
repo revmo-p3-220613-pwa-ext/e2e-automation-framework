@@ -1,8 +1,27 @@
 Feature: Login
 
-  Scenario: Valid Login
-    Given I am at the  login page
-    When I type in a email of "jd80@a.ca"
-    And I type in a password of "Password123!"
-    And I click the login button
-    Then I should be redirected to the user homepage
+
+  Scenario Outline: Valid user login
+    Given I am at the login page
+    When I type in a username "<username>"
+    And I type in a password "<password>"
+    And I click on the login button on login page
+    Then I should be redirected to the <page>
+    Examples:
+      |username |password|page        |
+      |jd80@a.ca|Password123!|user-page.html |
+      |jd81@a.ca|Password123!|user-page.html  |
+      |cs@a.ca  |password|employee.html  |
+
+  Scenario Outline: Invalid user login
+    Given I am at the login page
+    When I type in a username "<username>"
+    And I type in a password "<password>"
+    And I click on the login button on login page
+    Then I should receive the error on the login page "<error>"
+    Examples:
+      |username |password|error      |
+      |j80@a.ca|Password123!| Invalid email and/or password|
+      |jd81@a.ca|password123!| Invalid email and/or password |
+      |||Invalid email and/or password |
+
