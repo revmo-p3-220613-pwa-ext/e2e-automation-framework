@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -40,9 +41,12 @@ public class AccountPage {
     @FindBy(id = "my-account")
     private WebElement userPageButton;
 
-    public AccountPage(WebDriver driver) {
+    public AccountPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
+        UserPage userPage = new UserPage(driver);
+        userPage.clickAccount1();
+        wdw.until(ExpectedConditions.urlContains("account.html"));
         PageFactory.initElements(driver, this);
     }
 
