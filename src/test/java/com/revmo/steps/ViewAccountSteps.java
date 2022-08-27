@@ -2,12 +2,11 @@ package com.revmo.steps;
 
 import com.revmo.pages.UserPage;
 import com.revmo.testrunner.TestRunner;
-import com.revmo.pages.UserPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class ViewAccount {
+public class ViewAccountSteps {
 
     public UserPage userPage;
 
