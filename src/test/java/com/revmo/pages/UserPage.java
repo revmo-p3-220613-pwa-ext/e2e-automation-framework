@@ -1,4 +1,4 @@
-package com.revature.pages;
+package com.revmo.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,16 +33,16 @@ public class UserPage {
     @FindBy(id="1")
     private WebElement account1;
 
-    public UserPage(WebDriver driver) {
+    public UserPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
-        HomePage homePage = new HomePage(driver);
-        homePage.clickBurger();
-        homePage.clickLogin();
+//        HomePage homePage = new HomePage(driver);
+//        homePage.clickBurger();
+//        homePage.clickLogin();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.typeEmail("jd80@a.ca");
+        loginPage.typeUsername("jd80@a.ca");
         loginPage.typePassword("Password123!");
-        loginPage.clickLoginButton();
+        loginPage.clickLogin();
         PageFactory.initElements(driver, this);
     }
 

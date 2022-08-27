@@ -1,7 +1,8 @@
-package com.revature.steps;
+package com.revmo.steps;
 
-import com.revature.pages.UserPage;
-import com.revature.runner.TestRunner;
+import com.revmo.pages.UserPage;
+import com.revmo.testrunner.TestRunner;
+import com.revmo.pages.UserPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,7 +25,7 @@ public class ViewAccount {
     }
 
     @Given("I am at the user page")
-    public void iAmAtTheUserPage() {
+    public void iAmAtTheUserPage() throws InterruptedException {
         UserPage userPage = new UserPage(TestRunner.driver);
 
     }
