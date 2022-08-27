@@ -3,16 +3,11 @@ package com.revmo.steps;
 import com.revmo.pages.EditUserInfoPage;
 import com.revmo.pages.UserPage;
 import com.revmo.testrunner.TestRunner;
-import com.revmo.testrunner.TestRunner;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.testng.annotations.Test;
 
-import java.sql.Time;
-
-public class EditUserInfo {
+public class EditUserInfoSteps {
 
     public UserPage userPage;
 
