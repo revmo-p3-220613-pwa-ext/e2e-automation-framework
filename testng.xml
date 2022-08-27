@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Suite">
-    <test name="My Tests">
+<suite name="Concrete Jungle E2E Test Suite">
+    <test name="E2E Tests">
         <classes>
-            <class name="com.revature.runner.TestRunner"></class>
+            <class name="com.revmo.testrunner.TestRunner"></class>
         </classes>
     </test>
 </suite>
