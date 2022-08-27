@@ -1,31 +1,36 @@
 package com.revmo.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static com.revmo.testrunner.TestRunner.driver;
+
 public class EmployeePage {
+
     private WebDriver driver;
 
     private WebDriverWait wdw;
 
     public EmployeePage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
         LoginPage loginPage = new LoginPage(driver);
         loginPage.typeUsername("jd800@a.ca");
         loginPage.typePassword("Password123!");
         loginPage.clickLogin();
-        PageFactory.initElements(driver, this);
         wdw.until(ExpectedConditions.urlContains("employee.html"));
     }
 
-    @FindBy(id = "email-input")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]")
     private WebElement emailInput;
 
     @FindBy(id = "search-email-btn")
@@ -70,34 +75,43 @@ public class EmployeePage {
     @FindBy(id = "unlink-btn")
     private WebElement unlinkButton;
 
-    @FindBy(id = "logout-btn")
+    @FindBy(xpath = "/html[1]/body[1]/nav[1]/div[2]/div[2]/div[1]/a[2]")
     private WebElement logoutButton;
+
+    @FindBy(id = "accounts-title")
+    private WebElement accountTitle;
 
     public void typeEmail(String email){
 
-        emailInput.sendKeys();
+        emailInput.sendKeys(email);
     }
 
     public void clickEmailSearch(){
+        wdw.until(ExpectedConditions.elementToBeClickable(emailSubmitButton));
         emailSubmitButton.click();
     }
 
     public void clickCheckingButton(){
+        wdw.until(ExpectedConditions.elementToBeClickable(checkingRadioBtn));
         checkingRadioBtn.click();
     }
 
     public void clickSavingsButton(){
+        wdw.until(ExpectedConditions.elementToBeClickable(savingRadioBtn));
         savingRadioBtn.click();
     }
 
     public void clickAddAccountButton(){
+        wdw.until(ExpectedConditions.elementToBeClickable(addAccountButton));
         addAccountButton.click();
     }
 
     public void clickFirstAccount(){
+        wdw.until(ExpectedConditions.elementToBeClickable(firstAccount));
         firstAccount.click();
     }
     public void clickBackOnTrx(){
+        wdw.until(ExpectedConditions.elementToBeClickable(trxBackButton));
         trxBackButton.click();
     }
 //    public void selectSendingId(){
@@ -107,26 +121,45 @@ public class EmployeePage {
 //        transferReceivingIdDropdown.click();
 //    }
     public void typeAmountForTransfer(String amount){
+        wdw.until(ExpectedConditions.visibilityOf(transferAmount));
         transferAmount.sendKeys(amount);
     }
     public void clickTransferButton(){
+        wdw.until(ExpectedConditions.elementToBeClickable(transferAmountButton));
         transferAmountButton.click();
     }
     public void typeLinkAccount(String linkAccountId){
+        wdw.until(ExpectedConditions.visibilityOf(linkAccountInput));
         linkAccountInput.sendKeys(linkAccountId);
     }
     public void clickLinkAccountButton(){
+        wdw.until(ExpectedConditions.elementToBeClickable(linkButton));
         linkButton.click();
     }
-//    public void selectUnlinkAccount(){
-//        unlinkAccountDropdown.click();
-//    }
+    public void selectUnlinkAccount(int id) throws InterruptedException {
+        Thread.sleep(1500);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+        wdw.until(ExpectedConditions.elementToBeClickable(unlinkAccountDropdown));
+        unlinkAccountDropdown.click();
+        Thread.sleep(200);
+        Select se = new Select(unlinkAccountDropdown);
+//        wdw.until(ExpectedConditions.elementToBeSelected(unlinkAccountDropdown.isSelected()));
+        se.selectByIndex(id);
+    }
     public void clickUnlinkAccount(){
+        wdw.until(ExpectedConditions.elementToBeClickable(unlinkButton));
         unlinkButton.click();
     }
-    public void clickLogoutButton(){
+    public void clickLogoutButton() throws InterruptedException {
+        driver.manage().window().maximize();
+        Thread.sleep(500);
+        wdw.until(ExpectedConditions.visibilityOf(logoutButton));
         logoutButton.click();
     }
-
+    public String getAccountTitle(){
+        wdw.until(ExpectedConditions.visibilityOf(accountTitle));
+        return accountTitle.getText();
+    }
 
 }
