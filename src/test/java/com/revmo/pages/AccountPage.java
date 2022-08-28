@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+
+import static com.revmo.testrunner.TestRunner.driver;
 
 public class AccountPage {
 
@@ -35,7 +38,7 @@ public class AccountPage {
     @FindBy(id = "submit-transfer-btn")
     private WebElement submitTransferButton;
 
-    @FindBy(id = "logout-btn")
+    @FindBy(xpath = "/html[1]/body[1]/nav[1]/div[2]/div[2]/div[1]/a[2]")
     private WebElement logoutButton;
 
     @FindBy(id = "my-account")
@@ -46,7 +49,7 @@ public class AccountPage {
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
         UserPage userPage = new UserPage(driver);
         userPage.clickAccount1();
-        wdw.until(ExpectedConditions.urlContains("account.html"));
+//        wdw.until(ExpectedConditions.urlContains("account.html"));
         PageFactory.initElements(driver, this);
     }
 
@@ -66,9 +69,12 @@ public class AccountPage {
         return accountBalance.getText();
     }
 
-//    public void selectTransferIdDropdown(){
-//        transferIdDropdown.click();
-//    }
+    public void selectTransferIdDropdown(int account) throws InterruptedException {
+        transferIdDropdown.click();
+        Thread.sleep(200);
+        Select se = new Select(transferIdDropdown);
+        se.selectByIndex(account);
+    }
 
     public void typeAmountInput(String amount){
         transferAmountInput.sendKeys(amount);
@@ -78,11 +84,16 @@ public class AccountPage {
         submitTransferButton.click();
     }
 
-    public void clickLogoutButton(){
+    public void clickLogoutButton() throws InterruptedException {
+        driver.manage().window().maximize();
+        wdw.until(ExpectedConditions.visibilityOf(logoutButton));
         logoutButton.click();
+
     }
 
-    public void clickUserPageButton(){
+    public void clickUserPageButton() throws InterruptedException {
+        driver.manage().window().maximize();
+        wdw.until(ExpectedConditions.visibilityOf(userPageButton));
         userPageButton.click();
     }
 

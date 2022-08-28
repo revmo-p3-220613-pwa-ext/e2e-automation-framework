@@ -38,21 +38,22 @@ public class EditUserInfoPage {
     public EditUserInfoPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
-        UserPage userPage = new UserPage(driver);
-        userPage.clickEditUserInfoButton();
         wdw.until(ExpectedConditions.urlContains("edit-user-info.html"));
         PageFactory.initElements(driver, this);
     }
 
     public void typeFirstNameInput(String firstName){
+        firstNameInput.clear();
         firstNameInput.sendKeys(firstName);
     }
 
     public void typeLastNameInput(String lastName){
+        lastNameInput.clear();
         lastNameInput.sendKeys(lastName);
     }
 
     public void typePhoneInput(String phoneNumber){
+        phoneInput.clear();
         phoneInput.sendKeys(phoneNumber);
     }
 
@@ -64,10 +65,14 @@ public class EditUserInfoPage {
         return errorMessages.getText();
     }
     public void clickLogoutButton(){
+        driver.manage().window().maximize();
+        wdw.until(ExpectedConditions.visibilityOf(logoutButton));
         logoutButton.click();
     }
 
     public void clickUserPageButton(){
+        driver.manage().window().maximize();
+        wdw.until(ExpectedConditions.visibilityOf(userPageButton));
         userPageButton.click();
     }
     public void getUrl() {

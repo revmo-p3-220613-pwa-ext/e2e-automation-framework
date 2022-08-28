@@ -24,7 +24,6 @@ public class EmployeeSteps {
     @Given("that I login as an employee")
     public void loginAsEmployee() throws InterruptedException {
         driver.get(url+"/login.html");
-//        wdw.until(ExpectedConditions.urlContains("login.html"));
         employeePage = new EmployeePage(driver);
     }
 
