@@ -1,5 +1,5 @@
 Feature: Navigate to Login
-#
+
 #  Scenario:
 #    Given I am at the home page
 #    When I click on the burger menu

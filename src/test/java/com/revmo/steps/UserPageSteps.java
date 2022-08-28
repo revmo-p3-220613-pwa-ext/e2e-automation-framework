@@ -1,0 +1,114 @@
+package com.revmo.steps;
+
+import com.revmo.pages.EmployeePage;
+import com.revmo.pages.UserPage;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import java.time.Duration;
+
+import static com.revmo.testrunner.TestRunner.driver;
+import static com.revmo.testrunner.TestRunner.url;
+
+public class UserPageSteps {
+    public UserPage userPage;
+
+    @Given("that I login as a user")
+    public void loginAsUser() throws InterruptedException {
+        driver.get(url+"/login.html");
+//        wdw.until(ExpectedConditions.urlContains("login.html"));
+        userPage = new UserPage(driver);
+    }
+
+    @When("I click on the first account displayed")
+    public void iClickOnTheFirstAccountDisplayed() {
+        userPage.clickAccount1();
+    }
+
+
+
+    @When("I click on the edit user info button")
+    public void iClickOnTheEditUserInfoButton() {
+    userPage.clickEditUserInfoButton();
+    }
+
+
+    @When("I click on the all income button")
+    public void iClickOnTheAllIncomeButton() {
+        userPage.clickAllIncomeButton();
+    }
+
+
+    @When("I click on the pending transactions button")
+    public void iClickOnThePendingTransactionsButton() {
+        userPage.clickPendingTransactionsButton();
+    }
+
+
+    @When("I scroll down to see send money")
+    public void iScrollDownToSeeSendMoney() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,400)", "");
+        Thread.sleep(200);
+      }
+
+    @And("I select the first account in send money")
+    public void iSelectTheFirstAccountInSendMoney() throws InterruptedException {
+        userPage.selectSendingDropdown();
+    }
+
+    @And("I type in an email of {string} into send email")
+    public void iTypeInAnEmailOfIntoSendEmail(String email) {
+        userPage.typeSendMoneyEmailInput(email);
+    }
+
+    @And("I type in a valid amount of {string} into send money")
+    public void iTypeInAValidAmountOfIntoSendMoney(String amount) {
+    userPage.typeSendMoneyAmountInput(amount);
+    }
+
+    @And("I click on send money submit button")
+    public void iClickOnSendMoneySubmitButton() {
+        userPage.clickSendMoneySubmitButton();
+    }
+
+    @When("I scroll down to see request money")
+    public void iScrollDownToSeeRequestMoney() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,850)", "");
+        Thread.sleep(200);
+    }
+
+    @And("I type in a valid email of {string} into request email")
+    public void iTypeInAValidEmailOfIntoRequestEmail(String email) {
+        userPage.typeRequestEmailInput(email);
+
+    }
+
+    @And("I select the first account in request money")
+    public void iSelectTheFirstAccountInRequestMoney() throws InterruptedException {
+        userPage.selectRequestAmountDropdown();
+    }
+
+    @And("I type in a valid amount of {string} into request money")
+    public void iTypeInAValidAmountOfIntoRequestMoney(String amount) {
+        userPage.typeRequestAmountInput(amount);
+    }
+
+    @And("I click on request money submit button")
+    public void iClickOnRequestMoneySubmitButton() {
+    userPage.clickRequestTransferSubmitButton();
+    }
+
+    @When("I click on the logout button on the user-page")
+    public void iClickOnTheLogoutButtonOnTheUserPage() throws InterruptedException {
+        userPage.clickLogoutButton();
+    }
+}

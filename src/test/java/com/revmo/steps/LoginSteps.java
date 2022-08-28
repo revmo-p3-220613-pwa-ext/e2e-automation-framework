@@ -13,13 +13,15 @@ import org.testng.Assert;
 import java.time.Duration;
 
 import static com.revmo.testrunner.TestRunner.driver;
+import static com.revmo.testrunner.TestRunner.url;
+
 public class LoginSteps {
     public LoginPage loginPage;
     public WebDriverWait wdw = new WebDriverWait(driver, Duration.ofSeconds(3));
 
     @Given("I am at the login page")
     public void i_am_at_login_page() throws InterruptedException {
-        driver.get("http://127.0.0.1:5501/login.html");
+        driver.get(url + "/login.html");
         loginPage = new LoginPage(driver);
         wdw.until(ExpectedConditions.urlContains("login.html"));
 
@@ -43,24 +45,6 @@ public class LoginSteps {
     loginPage.clickLogin();
     }
 
-    @Then("I should be redirected to the user-page.html")
-    public void iShouldBeRedirectedToPageUser() {
-
-        wdw.until(ExpectedConditions.urlContains("user-page.html"));
-
-        String actual = driver.getCurrentUrl();
-        String expected = "http://127.0.0.1:5501/user-page.html";
-        Assert.assertEquals(actual, expected);
-    }
-    @Then("I should be redirected to the employee.html")
-    public void iShouldBeRedirectedToPageEmployee() {
-
-        wdw.until(ExpectedConditions.urlContains("employee.html"));
-
-        String actual = driver.getCurrentUrl();
-        String expected = "http://127.0.0.1:5501/employee.html";
-        Assert.assertEquals(actual, expected);
-    }
 
     @Then("I should receive the error on the login page {string}")
     public void iShouldReceiveTheErrorOnTheLoginPage(String error) throws InterruptedException {

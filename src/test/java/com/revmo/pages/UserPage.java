@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -31,13 +32,13 @@ public class UserPage {
     @FindBy(id="hello")
     private WebElement hello;
 
-    @FindBy(id="1")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]")
     private WebElement account1;
 
-    @FindBy(id = "my-income")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/span[1]/button[1]")
     private WebElement allIncomeButton;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/p[5]/a[1]/button[1]")
+    @FindBy(xpath = "//button[@id='pending Transactions']")
     private WebElement pendingTransactionsButton;
 
     @FindBy(id = "sending-sending-id")
@@ -46,7 +47,7 @@ public class UserPage {
     @FindBy(id = "sending-receiving-id")
     private WebElement sendMoneyEmailInput;
 
-    @FindBy(id = "sending-amount-dollars")
+    @FindBy(css = "#sending-amount-dollars")
     private WebElement sendMoneyAmountInput;
 
     @FindBy(id = "sending-transfer-btn")
@@ -70,6 +71,8 @@ public class UserPage {
     @FindBy(id = "my-account")
     private WebElement myAccountsButton;
 
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/form[1]")
+    private WebElement randomSpot;
 
     public UserPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
@@ -79,6 +82,7 @@ public class UserPage {
         loginPage.typePassword("Password123!");
         loginPage.clickLogin();
         PageFactory.initElements(driver, this);
+        wdw.until(ExpectedConditions.urlContains("page.html"));
     }
 
     public void getHello() {
@@ -102,9 +106,13 @@ public class UserPage {
     public void clickPendingTransactionsButton(){
         pendingTransactionsButton.click();
     }
-//    public void selectSendingDropdown(){
-//        sendingIdDropdown.click();
-//    }
+    public void selectSendingDropdown() throws InterruptedException {
+        sendingIdDropdown.click();
+        Thread.sleep(200);
+        Select se = new Select(sendingIdDropdown);
+        se.selectByIndex(0);
+
+    }
     public void typeSendMoneyEmailInput(String email){
         sendMoneyEmailInput.sendKeys(email);
     }
@@ -121,8 +129,11 @@ public class UserPage {
         requestMoneyEmailInput.sendKeys(email);
     }
 
-    public void selectRequestAmountDropdown(){
+    public void selectRequestAmountDropdown() throws InterruptedException {
         requestAccountDropdown.click();
+        Thread.sleep(200);
+        Select se = new Select(requestAccountDropdown);
+        se.selectByIndex(0);
     }
 
     public void typeRequestAmountInput(String amount){
@@ -133,7 +144,10 @@ public class UserPage {
         requestTransferSubmitButton.click();
     }
 
-    public void clickLogoutButton(){
+    public void clickLogoutButton() throws InterruptedException {
+        driver.manage().window().maximize();
+        Thread.sleep(500);
+        wdw.until(ExpectedConditions.visibilityOf(logoutButton));
         logoutButton.click();
     }
 
