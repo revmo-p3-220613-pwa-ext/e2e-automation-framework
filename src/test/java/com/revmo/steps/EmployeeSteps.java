@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import static com.revmo.testrunner.TestRunner.driver;
+import static com.revmo.testrunner.TestRunner.url;
 
 public class EmployeeSteps {
     public EmployeePage employeePage;
@@ -22,7 +23,7 @@ public class EmployeeSteps {
 
     @Given("that I login as an employee")
     public void loginAsEmployee() throws InterruptedException {
-        driver.get("http://127.0.0.1:5501/login.html");
+        driver.get(url+"/login.html");
 //        wdw.until(ExpectedConditions.urlContains("login.html"));
         employeePage = new EmployeePage(driver);
     }
@@ -81,11 +82,7 @@ public class EmployeeSteps {
         employeePage.clickUnlinkAccount();
     }
 
-    @And("I wait a moment")
-    public void iWaitAMoment() throws InterruptedException {
 
-//        Thread.sleep(1000);
-    }
 
     @When("I click on logout on employee page")
     public void iClickOnLogoutOnEmployeePage() throws InterruptedException {
@@ -93,14 +90,6 @@ public class EmployeeSteps {
         employeePage.clickLogoutButton();
     }
 
-    @Then("I should be redirected to the index.html")
-    public void iShouldBeRedirectedToTheIndexHtml() throws InterruptedException {
-        Thread.sleep(500);
-//    wdw.until(ExpectedConditions.urlContains("index.html"));
-    String actual = driver.getCurrentUrl();
-    String expected = "http://127.0.0.1:5501/index.html";
-    Assert.assertEquals(actual, expected);
-    }
 
     @And("I click on the first account")
     public void iClickOnTheFirstAccount() {

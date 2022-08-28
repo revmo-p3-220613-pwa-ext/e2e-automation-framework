@@ -17,7 +17,7 @@ public class EmployeePage {
 
     private WebDriver driver;
 
-    private WebDriverWait wdw;
+    public WebDriverWait wdw;
 
     public EmployeePage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
@@ -78,7 +78,7 @@ public class EmployeePage {
     @FindBy(xpath = "/html[1]/body[1]/nav[1]/div[2]/div[2]/div[1]/a[2]")
     private WebElement logoutButton;
 
-    @FindBy(id = "accounts-title")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/h2[1]")
     private WebElement accountTitle;
 
     public void typeEmail(String email){
