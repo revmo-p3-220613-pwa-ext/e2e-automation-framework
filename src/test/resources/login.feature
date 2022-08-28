@@ -12,7 +12,7 @@ Feature: Login
       |jd80@a.ca|Password123!|user-page.html |
       |jd81@a.ca|Password123!|user-page.html  |
       |jd800@a.ca|Password123!|employee.html  |
-#
+
   Scenario Outline: Invalid user login
     Given I am at the login page
     When I type in a username "<username>"

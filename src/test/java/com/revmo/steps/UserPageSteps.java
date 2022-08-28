@@ -111,4 +111,12 @@ public class UserPageSteps {
     public void iClickOnTheLogoutButtonOnTheUserPage() throws InterruptedException {
         userPage.clickLogoutButton();
     }
+
+    @Then("My first account should have less money")
+    public void myFirstAccountShouldHaveLessMoney() throws InterruptedException {
+        Thread.sleep(500);
+        String original = userPage.getOriginalBalance();
+        String updated = userPage.getCurrentBalance();
+        Assert.assertNotEquals(original, updated);
+    }
 }

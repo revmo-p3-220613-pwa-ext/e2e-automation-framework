@@ -1,5 +1,6 @@
 package com.revmo.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 import static com.revmo.testrunner.TestRunner.driver;
 
@@ -18,6 +20,8 @@ public class EmployeePage {
     private WebDriver driver;
 
     public WebDriverWait wdw;
+
+    private int originalRowsOfAccounts;
 
     public EmployeePage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
@@ -29,6 +33,8 @@ public class EmployeePage {
         loginPage.clickLogin();
         wdw.until(ExpectedConditions.urlContains("employee.html"));
     }
+
+
 
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]")
     private WebElement emailInput;
@@ -81,22 +87,39 @@ public class EmployeePage {
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/h2[1]")
     private WebElement accountTitle;
 
-    public void typeEmail(String email){
+    public void typeEmail(String email) throws InterruptedException {
 
         emailInput.sendKeys(email);
+
     }
 
-    public void clickEmailSearch(){
+    public int getNumberOfRowsOfAccounts() throws InterruptedException {
+        Thread.sleep(500);
+        List<WebElement> accounts = driver.findElements(By.tagName("tr"));
+        return accounts.size();
+    }
+
+    public int getOriginalOfRowsOfAccounts(){
+        return originalRowsOfAccounts;
+    }
+    public void clickEmailSearch() throws InterruptedException {
         wdw.until(ExpectedConditions.elementToBeClickable(emailSubmitButton));
         emailSubmitButton.click();
+        Thread.sleep(700);
+        this.originalRowsOfAccounts = getNumberOfRowsOfAccounts();
+
     }
 
-    public void clickCheckingButton(){
+    public void clickCheckingButton() throws InterruptedException {
+        this.originalRowsOfAccounts = getNumberOfRowsOfAccounts();
+        Thread.sleep(300);
         wdw.until(ExpectedConditions.elementToBeClickable(checkingRadioBtn));
         checkingRadioBtn.click();
     }
 
-    public void clickSavingsButton(){
+    public void clickSavingsButton() throws InterruptedException {
+        this.originalRowsOfAccounts = getNumberOfRowsOfAccounts();
+        Thread.sleep(300);
         wdw.until(ExpectedConditions.elementToBeClickable(savingRadioBtn));
         savingRadioBtn.click();
     }
@@ -114,12 +137,26 @@ public class EmployeePage {
         wdw.until(ExpectedConditions.elementToBeClickable(trxBackButton));
         trxBackButton.click();
     }
-//    public void selectSendingId(){
-//        transferSendingIdDropdown.click();
-//    }
-//    public void selectRecevingId(){
-//        transferReceivingIdDropdown.click();
-//    }
+    public void selectSendingId() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+        wdw.until(ExpectedConditions.elementToBeClickable(transferSendingIdDropdown));
+        transferSendingIdDropdown.click();
+        Thread.sleep(200);
+        Select se = new Select(transferSendingIdDropdown);
+//        wdw.until(ExpectedConditions.elementToBeSelected(unlinkAccountDropdown.isSelected()));
+        se.selectByIndex(0);
+    }
+    public void selectRecevingId() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+        wdw.until(ExpectedConditions.elementToBeClickable(transferReceivingIdDropdown));
+        transferReceivingIdDropdown.click();
+        Thread.sleep(200);
+        Select se = new Select(transferReceivingIdDropdown);
+//        wdw.until(ExpectedConditions.elementToBeSelected(unlinkAccountDropdown.isSelected()));
+        se.selectByIndex(1);
+    }
     public void typeAmountForTransfer(String amount){
         wdw.until(ExpectedConditions.visibilityOf(transferAmount));
         transferAmount.sendKeys(amount);
@@ -132,12 +169,12 @@ public class EmployeePage {
         wdw.until(ExpectedConditions.visibilityOf(linkAccountInput));
         linkAccountInput.sendKeys(linkAccountId);
     }
-    public void clickLinkAccountButton(){
+    public void clickLinkAccountButton() throws InterruptedException {
+        this.originalRowsOfAccounts = getNumberOfRowsOfAccounts();
         wdw.until(ExpectedConditions.elementToBeClickable(linkButton));
         linkButton.click();
     }
-    public void selectUnlinkAccount(int id) throws InterruptedException {
-        Thread.sleep(1500);
+    public void selectUnlinkAccount(String id) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
         wdw.until(ExpectedConditions.elementToBeClickable(unlinkAccountDropdown));
@@ -145,9 +182,10 @@ public class EmployeePage {
         Thread.sleep(200);
         Select se = new Select(unlinkAccountDropdown);
 //        wdw.until(ExpectedConditions.elementToBeSelected(unlinkAccountDropdown.isSelected()));
-        se.selectByIndex(id);
+        se.selectByValue(id);
     }
-    public void clickUnlinkAccount(){
+    public void clickUnlinkAccount() throws InterruptedException {
+        this.originalRowsOfAccounts = getNumberOfRowsOfAccounts();
         wdw.until(ExpectedConditions.elementToBeClickable(unlinkButton));
         unlinkButton.click();
     }
@@ -162,4 +200,8 @@ public class EmployeePage {
         return accountTitle.getText();
     }
 
+    public void getAllAccounts() {
+        List <WebElement> row = driver.findElements(By.xpath(".//th[@id='th-1']"));
+
+    }
 }

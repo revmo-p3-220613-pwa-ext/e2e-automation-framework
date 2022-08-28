@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import static com.revmo.testrunner.TestRunner.driver;
 import static com.revmo.testrunner.TestRunner.url;
@@ -34,9 +35,16 @@ public class AccountSteps {
         accountPage.typeAmountInput(amount);
     }
 
-    @Then("{string} amount should be taken from my account")
-    public void thatAmountShouldBeTakenFromMyAccount(String amount) {
-        //work in progress
+    @Then("money amount should be taken from my account")
+    public void thatAmountShouldBeTakenFromMyAccount() throws InterruptedException {
+//        double actualBalance = Double.parseDouble(accountPage.getAccountBalance());
+//        double originalBalance = Double.parseDouble(accountPage.getOriginalBalance());
+//        double subtractAmount = Double.parseDouble(amount);
+//        double expectedBalance = originalBalance - subtractAmount;
+
+        String actualBalance = accountPage.getAccountBalance();
+        String oldBalance = accountPage.getOriginalBalance();
+        Assert.assertNotEquals(actualBalance,oldBalance);
     }
 
     @And("I click on the user page button on the accounts page")

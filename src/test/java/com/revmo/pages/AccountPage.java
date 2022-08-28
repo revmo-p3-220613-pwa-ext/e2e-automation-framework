@@ -17,6 +17,8 @@ public class AccountPage {
     private WebDriver driver;
     private WebDriverWait wdw;
 
+    private String originalBalance;
+
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/p[2]")
     private WebElement userFirstAndLastName;
 
@@ -49,8 +51,8 @@ public class AccountPage {
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
         UserPage userPage = new UserPage(driver);
         userPage.clickAccount1();
-//        wdw.until(ExpectedConditions.urlContains("account.html"));
         PageFactory.initElements(driver, this);
+        this.originalBalance = getAccountBalance();
     }
 
     public String getUserFirstAndLastName(){
@@ -65,10 +67,15 @@ public class AccountPage {
         return accountType.getText();
     }
 
-    public String getAccountBalance(){
+    public String getAccountBalance() throws InterruptedException {
+        wdw.until(ExpectedConditions.visibilityOf(accountBalance));
+        Thread.sleep(500);
         return accountBalance.getText();
     }
 
+    public String getOriginalBalance(){
+        return originalBalance;
+    }
     public void selectTransferIdDropdown(int account) throws InterruptedException {
         transferIdDropdown.click();
         Thread.sleep(200);

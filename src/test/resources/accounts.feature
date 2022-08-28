@@ -9,7 +9,7 @@ Feature: Accounts
       When I select the 1 account in transfer between accounts
       And I type in a valid amount of "00.01" into the transfer amount
       And I click the submit transfer button
-#      Then "00.01" amount should be taken from my account
+      Then money amount should be taken from my account
 
       Scenario: I click on the User page button
         Given I am on the first accounts, accounts page

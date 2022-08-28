@@ -4,6 +4,7 @@ import com.revmo.pages.EditUserInfoPage;
 import com.revmo.pages.UserPage;
 import com.revmo.testrunner.TestRunner;
 import io.cucumber.java.en.*;
+import org.testng.Assert;
 
 import static com.revmo.testrunner.TestRunner.driver;
 import static com.revmo.testrunner.TestRunner.url;
@@ -13,6 +14,9 @@ public class EditUserInfoSteps {
     public UserPage userPage;
 
     public EditUserInfoPage editUserInfoPage;
+
+    private String name;
+    private String phoneNumber;
 
 //    @And("I am on my user page")
 //    public void iAmOnMyUserPage() throws InterruptedException {
@@ -63,22 +67,25 @@ public class EditUserInfoSteps {
     public void iAmOnTheEditUserInfoPage() throws InterruptedException {
         driver.get(url+"/login.html");
         userPage = new UserPage(driver);
+        this.name = userPage.getName();
         userPage.clickEditUserInfoButton();
+
         editUserInfoPage = new EditUserInfoPage(driver);
     }
 
     @When("I type in a first name of {string}")
-    public void iTypeInAFirstNameOf(String firstname) {
+    public void iTypeInAFirstNameOf(String firstname) throws InterruptedException {
         editUserInfoPage.typeFirstNameInput(firstname);
     }
 
     @And("I type in a valid last name of {string}")
-    public void iTypeInAValidLastNameOf(String lastname) {
+    public void iTypeInAValidLastNameOf(String lastname) throws InterruptedException {
+
         editUserInfoPage.typeLastNameInput(lastname);
     }
 
     @And("I type a valid phone number of {string}")
-    public void iTypeAValidPhoneNumberOf(String phoneNumber) {
+    public void iTypeAValidPhoneNumberOf(String phoneNumber) throws InterruptedException {
     editUserInfoPage.typePhoneInput(phoneNumber);
     }
 
@@ -88,7 +95,11 @@ public class EditUserInfoSteps {
     }
 
     @But("the name should now match {string}{string}")
-    public void theNameShouldNowMatch(String firstname, String lastname) {
+    public void theNameShouldNowMatch(String firstname, String lastname) throws InterruptedException {
+        Thread.sleep(500);
+        String actual = userPage.getName();
+        String expected = firstname + " " + lastname;
+        Assert.assertEquals(actual, expected);
     }
 
     @When("I click on the logout button on the edit user info page")
@@ -99,5 +110,11 @@ public class EditUserInfoSteps {
     @When("I click on the User page button on the edit user info page")
     public void iClickOnTheUserPageButtonOnTheEditUserInfoPage() {
         editUserInfoPage.clickUserPageButton();
+    }
+
+    @And("the phone number should match {string}")
+    public void thePhoneNumberShouldMatch(String phoneNumber) {
+        String actual = userPage.getPhoneNumber();
+        Assert.assertEquals(actual, phoneNumber);
     }
 }
