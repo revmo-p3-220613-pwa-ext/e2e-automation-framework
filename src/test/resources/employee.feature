@@ -52,9 +52,9 @@ Feature: Employee
 #    Then <accountId> should be removed
     Examples:
     |accountId|
-    |1        |
-    |1        |
-    |1        |
+    |2        |
+    |2        |
+    |2        |
 
   Scenario: Logout from employee page
     Given that I login as an employee

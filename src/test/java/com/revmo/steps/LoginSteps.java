@@ -23,7 +23,6 @@ public class LoginSteps {
     public void i_am_at_login_page() throws InterruptedException {
         driver.get(url + "/login.html");
         loginPage = new LoginPage(driver);
-        wdw.until(ExpectedConditions.urlContains("login.html"));
 
     }
 
@@ -48,7 +47,6 @@ public class LoginSteps {
 
     @Then("I should receive the error on the login page {string}")
     public void iShouldReceiveTheErrorOnTheLoginPage(String error) throws InterruptedException {
-//        Thread.sleep(5000);
         String actual = (loginPage.getErrorMessages());
         Assert.assertEquals(actual, error);
     }
