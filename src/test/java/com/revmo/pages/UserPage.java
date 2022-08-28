@@ -17,13 +17,18 @@ public class UserPage {
     private WebDriver driver;
     private WebDriverWait wdw;
 
-    @FindBy(id="name")
+    private String originalBalance;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]")
+    private WebElement balanceWebElement;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/p[1]/span[2]")
     private WebElement name;
 
     @FindBy(id="email")
     private WebElement email;
 
-    @FindBy(id="phone")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/p[8]")
     private WebElement phoneNumber;
 
     @FindBy(id="edit-user-info-btn")
@@ -71,8 +76,8 @@ public class UserPage {
     @FindBy(id = "my-account")
     private WebElement myAccountsButton;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/form[1]")
-    private WebElement randomSpot;
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/span[2]")
+    private WebElement firstAccountNumber;
 
     public UserPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
@@ -83,12 +88,20 @@ public class UserPage {
         loginPage.clickLogin();
         PageFactory.initElements(driver, this);
         wdw.until(ExpectedConditions.urlContains("page.html"));
+        this.originalBalance = getCurrentBalance();
     }
 
     public void getHello() {
         wdw.until(ExpectedConditions.urlContains("user-page"));
         hello.getText();
     }
+    public String getName(){
+        return name.getText();
+    }
+    public String getPhoneNumber(){
+        return phoneNumber.getText();
+    }
+
 
     public void clickEditUserInfoButton() {
         wdw.until(ExpectedConditions.elementToBeClickable(editUserInfoButton));
@@ -110,7 +123,7 @@ public class UserPage {
         sendingIdDropdown.click();
         Thread.sleep(200);
         Select se = new Select(sendingIdDropdown);
-        se.selectByIndex(0);
+        se.selectByValue(firstAccountNumber.getText());
 
     }
     public void typeSendMoneyEmailInput(String email){
@@ -122,6 +135,7 @@ public class UserPage {
     }
 
     public void clickSendMoneySubmitButton(){
+
         sendMoneySubmitButton.click();
     }
 
@@ -155,4 +169,10 @@ public class UserPage {
         myAccountsButton.click();
     }
 
+    public String getCurrentBalance(){
+        return balanceWebElement.getText();
+    }
+    public String getOriginalBalance(){
+        return originalBalance;
+    }
 }

@@ -13,8 +13,8 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
 @CucumberOptions(glue="com.revmo.steps", features={"src/test/resources/login.feature", "src/test/resources/employee.feature",
-        "src/test/resources/userpage.feature", "src/test/resources/accounts.feature", "src/test/resources/EditUsersInfo.feature"})
-//        plugin ={"pretty", "html: results/html", "json:results/json/results.json", "junit:results/junit/cucumber.xml"} )
+        "src/test/resources/userpage.feature", "src/test/resources/accounts.feature", "src/test/resources/EditUsersInfo.feature"},
+        plugin ={"pretty", "html: results/html", "json:results/json/results.json", "junit:results/junit/cucumber.xml"} )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
     public static WebDriver driver;
@@ -24,11 +24,12 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     @BeforeMethod
     public void setup() {
         WebDriverManager.chromedriver().setup();
+//uncomment for headless mode
 //        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("−−incognito");
 //        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
-
 //        driver = new ChromeDriver(options);
+
+// Uncomment for debugging
     driver = new ChromeDriver();
     }
 

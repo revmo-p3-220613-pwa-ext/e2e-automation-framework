@@ -42,19 +42,23 @@ public class EditUserInfoPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void typeFirstNameInput(String firstName){
+    public void typeFirstNameInput(String firstName) throws InterruptedException {
         firstNameInput.clear();
         firstNameInput.sendKeys(firstName);
+        Thread.sleep(200);
     }
 
-    public void typeLastNameInput(String lastName){
+    public void typeLastNameInput(String lastName) throws InterruptedException {
         lastNameInput.clear();
         lastNameInput.sendKeys(lastName);
+        Thread.sleep(200);
     }
 
-    public void typePhoneInput(String phoneNumber){
+    public void typePhoneInput(String phoneNumber) throws InterruptedException {
         phoneInput.clear();
         phoneInput.sendKeys(phoneNumber);
+        Thread.sleep(200);
+
     }
 
     public void clickSubmitButton(){
