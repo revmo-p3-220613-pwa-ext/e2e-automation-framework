@@ -4,6 +4,14 @@ Feature: UserPage
     Given that I login as a user
     Then I should be redirected to the user-page.html
 
+  Scenario: I view current month income on the user page
+    Given that I login as a user
+    Then I should see the current month income on the user page
+
+  Scenario: I view all time income on the user page
+    Given that I login as a user
+    Then I should see the all time income on the user page
+
   Scenario: I click on the first account on the user page
     Given that I login as a user
     When I click on the first account displayed

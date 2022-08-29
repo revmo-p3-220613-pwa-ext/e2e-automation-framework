@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.regex.Pattern;
 
 public class UserPage {
 
@@ -79,15 +80,21 @@ public class UserPage {
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/span[2]")
     private WebElement firstAccountNumber;
 
+    @FindBy(xpath = "//span[@id=\"current-month-total-income\"]")
+    private WebElement currentMonthIncome;
+
+    @FindBy(xpath = "//span[@id=\"all-time-total-income\"]")
+    private WebElement allTimeIncome;
+
     public UserPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
-        this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
+        this.wdw = new WebDriverWait(driver, Duration.ofSeconds(10));
         LoginPage loginPage = new LoginPage(driver);
         loginPage.typeUsername("jd80@a.ca");
         loginPage.typePassword("Password123!");
         loginPage.clickLogin();
         PageFactory.initElements(driver, this);
-        wdw.until(ExpectedConditions.urlContains("page.html"));
+        wdw.until(ExpectedConditions.textToBePresentInElement(balanceWebElement, "$"));
         this.originalBalance = getCurrentBalance();
     }
 
@@ -102,6 +109,15 @@ public class UserPage {
         return phoneNumber.getText();
     }
 
+    public String getCurrentMonthIncome() throws InterruptedException {
+        wdw.until(ExpectedConditions.textToBePresentInElement(currentMonthIncome, "."));
+        return currentMonthIncome.getText();
+    }
+
+    public String getAllTimeIncome() throws InterruptedException {
+        wdw.until(ExpectedConditions.textToBePresentInElement(allTimeIncome, "."));
+        return allTimeIncome.getText();
+    }
 
     public void clickEditUserInfoButton() {
         wdw.until(ExpectedConditions.elementToBeClickable(editUserInfoButton));

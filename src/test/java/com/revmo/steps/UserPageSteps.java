@@ -32,7 +32,19 @@ public class UserPageSteps {
         userPage.clickAccount1();
     }
 
+    @Then("I should see the current month income on the user page")
+    public void iShouldSeeTheCurrentMonthIncomeOnTheUserPage() throws InterruptedException {
+        String retrievedByTest = userPage.getCurrentMonthIncome();
+        String actualValue = "$564.26";
+        Assert.assertEquals(retrievedByTest, actualValue);
+    }
 
+    @Then("I should see the all time income on the user page")
+    public void iShouldSeeTheAllTimeIncomeOnTheUserPage() throws InterruptedException {
+        String retrievedByTest = userPage.getAllTimeIncome();
+        String actualValue = "$5,141.06";
+        Assert.assertEquals(retrievedByTest, actualValue);
+    }
 
     @When("I click on the edit user info button")
     public void iClickOnTheEditUserInfoButton() {

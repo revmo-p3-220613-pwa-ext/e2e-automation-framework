@@ -46,12 +46,19 @@ public class AccountPage {
     @FindBy(id = "my-account")
     private WebElement userPageButton;
 
+    @FindBy(xpath = "//span[@id=\"current-month-total-income\"]")
+    private WebElement monthlyIncome;
+
+    @FindBy(xpath = "//span[@id=\"all-time-total-income\"]")
+    private WebElement allTimeAccountIncome;
+
     public AccountPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
-        this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
+        this.wdw = new WebDriverWait(driver, Duration.ofSeconds(10));
         UserPage userPage = new UserPage(driver);
         userPage.clickAccount1();
         PageFactory.initElements(driver, this);
+        wdw.until(ExpectedConditions.textToBePresentInElement(accountBalance, "$"));
         this.originalBalance = getAccountBalance();
     }
 
@@ -71,6 +78,16 @@ public class AccountPage {
         wdw.until(ExpectedConditions.visibilityOf(accountBalance));
         Thread.sleep(500);
         return accountBalance.getText();
+    }
+
+    public String getMonthlyIncome() throws InterruptedException {
+        wdw.until(ExpectedConditions.textToBePresentInElement(monthlyIncome, "."));
+        return monthlyIncome.getText();
+    }
+
+    public String getAllTimeAccountIncome() throws InterruptedException {
+        wdw.until(ExpectedConditions.textToBePresentInElement(allTimeAccountIncome, "."));
+        return allTimeAccountIncome.getText();
     }
 
     public String getOriginalBalance(){
