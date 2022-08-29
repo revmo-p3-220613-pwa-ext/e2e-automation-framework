@@ -62,4 +62,18 @@ public class AccountSteps {
     public void iClickTheSubmitTransferButton() {
         accountPage.clickSubmitTransferButton();
     }
+
+    @Then("I should see the account current month income on the account page")
+    public void iShouldSeeTheCurrentMonthIncomeOnTheUserPage() throws InterruptedException {
+        String retrievedByTest = accountPage.getMonthlyIncome();
+        String actualValue = "$506.70";
+        Assert.assertEquals(retrievedByTest, actualValue);
+    }
+
+    @Then("I should see the all time account income on the account page")
+    public void iShouldSeeTheAllTimeIncomeOnTheUserPage() throws InterruptedException {
+        String retrievedByTest = accountPage.getAllTimeAccountIncome();
+        String actualValue = "$5,083.50";
+        Assert.assertEquals(retrievedByTest, actualValue);
+    }
 }
