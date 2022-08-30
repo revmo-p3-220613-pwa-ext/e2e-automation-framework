@@ -94,7 +94,7 @@ public class EmployeePage {
     }
 
     public int getNumberOfRowsOfAccounts() throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1000);
         List<WebElement> accounts = driver.findElements(By.tagName("tr"));
         return accounts.size();
     }
@@ -105,7 +105,7 @@ public class EmployeePage {
     public void clickEmailSearch() throws InterruptedException {
         wdw.until(ExpectedConditions.elementToBeClickable(emailSubmitButton));
         emailSubmitButton.click();
-        Thread.sleep(700);
+        Thread.sleep(500);
         this.originalRowsOfAccounts = getNumberOfRowsOfAccounts();
 
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="37" time="137.625">
-<testcase classname="EditUserInfo" name="Valid Updates For user information" time="3.109">
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="37" time="174.524">
+<testcase classname="EditUserInfo" name="Valid Updates For user information" time="6.829">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I type in a first name of "Bruce"......................................passed
 And I type in a valid last name of "Wayne"..................................passed
@@ -11,7 +11,7 @@ But the name should now match "Bruce""Wayne"................................pass
 And the phone number should match "999-999-9999"............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Valid Updates For user information 2" time="2.984">
+<testcase classname="EditUserInfo" name="Valid Updates For user information 2" time="4.468">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I type in a first name of "Barry"......................................passed
 And I type in a valid last name of "Allen"..................................passed
@@ -22,7 +22,7 @@ But the name should now match "Barry""Allen"................................pass
 And the phone number should match "888-888-8888"............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Valid Updates For user information 3" time="2.955">
+<testcase classname="EditUserInfo" name="Valid Updates For user information 3" time="4.459">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I type in a first name of "Peter"......................................passed
 And I type in a valid last name of "Parker".................................passed
@@ -33,25 +33,25 @@ But the name should now match "Peter""Parker"...............................pass
 And the phone number should match "777-777-7777"............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Logout from edit user info page" time="1.25">
+<testcase classname="EditUserInfo" name="Logout from edit user info page" time="3.119">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I click on the logout button on the edit user info page................passed
 Then I should be redirected to the index.html...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Go back to the user page" time="1.345">
+<testcase classname="EditUserInfo" name="Go back to the user page" time="2.707">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I click on the User page button on the edit user info page.............passed
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Accounts" name="Click on first account" time="1.04">
+<testcase classname="Accounts" name="Click on first account" time="2.711">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the first account displayed.................................passed
 Then I should be redirected to the account.html.............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Accounts" name="Transfer Valid amount of money to another account" time="2.574">
+<testcase classname="Accounts" name="Transfer Valid amount of money to another account" time="4.488">
 <system-out><![CDATA[Given I am on the first accounts, accounts page.............................passed
 When I select the 1 account in transfer between accounts....................passed
 And I type in a valid amount of "00.01" into the transfer amount............passed
@@ -59,38 +59,38 @@ And I click the submit transfer button......................................pass
 Then money amount should be taken from my account...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Accounts" name="I click on the User page button" time="1.765">
+<testcase classname="Accounts" name="I click on the User page button" time="3.788">
 <system-out><![CDATA[Given I am on the first accounts, accounts page.............................passed
 And I click on the user page button on the accounts page....................passed
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Accounts" name="I logout from the accounts page" time="1.8">
+<testcase classname="Accounts" name="I logout from the accounts page" time="4.288">
 <system-out><![CDATA[Given I am on the first accounts, accounts page.............................passed
 When I click on the logout button on the accounts page......................passed
 Then I should be redirected to the index.html...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="I login as an employee" time="1.026">
+<testcase classname="Employee" name="I login as an employee" time="1.465">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 Then I should be redirected to the employee.html............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="I input a customers email while logged in as an employee" time="2.331">
+<testcase classname="Employee" name="I input a customers email while logged in as an employee" time="2.952">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
 Then A table should generate with accounts for "jd80@a.ca"..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="I input a customers email while logged in as an employee 2" time="2.271">
+<testcase classname="Employee" name="I input a customers email while logged in as an employee 2" time="3.421">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd81@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
 Then A table should generate with accounts for "jd81@a.ca"..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Add savings account to user" time="3.65">
+<testcase classname="Employee" name="Add savings account to user" time="6.246">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd81@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -99,7 +99,7 @@ And I click the add account submit button...................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Add checking account to user" time="3.741">
+<testcase classname="Employee" name="Add checking account to user" time="5.891">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd81@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -108,7 +108,7 @@ And I click the add account submit button...................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Link Account to user" time="3.607">
+<testcase classname="Employee" name="Link Account to user" time="5.664">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -117,7 +117,7 @@ And I click on the link account button......................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Link Account to user 2" time="3.426">
+<testcase classname="Employee" name="Link Account to user 2" time="5.619">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -126,7 +126,7 @@ And I click on the link account button......................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Link Account to user 3" time="3.363">
+<testcase classname="Employee" name="Link Account to user 3" time="5.608">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -135,7 +135,7 @@ And I click on the link account button......................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Unlink first Account from user" time="3.858">
+<testcase classname="Employee" name="Unlink first Account from user" time="6.193">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -144,7 +144,7 @@ And I click on the unlink account button....................................pass
 Then the account should not be listed should be removed.....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Unlink first Account from user 2" time="3.746">
+<testcase classname="Employee" name="Unlink first Account from user 2" time="5.328">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -153,7 +153,7 @@ And I click on the unlink account button....................................pass
 Then the account should not be listed should be removed.....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Unlink first Account from user 3" time="3.616">
+<testcase classname="Employee" name="Unlink first Account from user 3" time="5.429">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -162,13 +162,13 @@ And I click on the unlink account button....................................pass
 Then the account should not be listed should be removed.....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Logout from employee page" time="1.716">
+<testcase classname="Employee" name="Logout from employee page" time="2.386">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I click on logout on employee page.....................................passed
 Then I should be redirected to the index.html...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Access Trx information for an certain account" time="2.522">
+<testcase classname="Employee" name="Access Trx information for an certain account" time="3.513">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -177,7 +177,7 @@ And I click back............................................................pass
 Then I should be at the original table on employees.........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Transfer money for user" time="3.215">
+<testcase classname="Employee" name="Transfer money for user" time="3.687">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -188,7 +188,7 @@ And I click the submit button fot transfer between accounts.................pass
 Then both accounts will have a different balance............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Valid user login" time="0.892">
+<testcase classname="Login" name="Valid user login" time="1.188">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd80@a.ca".......................................passed
 And I type in a password "Password123!".....................................passed
@@ -196,7 +196,7 @@ And I click on the login button on login page...............................pass
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Valid user login 2" time="0.88">
+<testcase classname="Login" name="Valid user login 2" time="1.203">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd81@a.ca".......................................passed
 And I type in a password "Password123!".....................................passed
@@ -204,7 +204,7 @@ And I click on the login button on login page...............................pass
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Valid user login 3" time="0.992">
+<testcase classname="Login" name="Valid user login 3" time="1.175">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd800@a.ca"......................................passed
 And I type in a password "Password123!".....................................passed
@@ -212,7 +212,7 @@ And I click on the login button on login page...............................pass
 Then I should be redirected to the employee.html............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Invalid user login" time="0.939">
+<testcase classname="Login" name="Invalid user login" time="1.101">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "j80@a.ca"........................................passed
 And I type in a password "Password123!".....................................passed
@@ -220,7 +220,7 @@ And I click on the login button on login page...............................pass
 Then I should receive the error on the login page "Invalid email and/or password".passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Invalid user login 2" time="0.925">
+<testcase classname="Login" name="Invalid user login 2" time="1.224">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd81@a.ca".......................................passed
 And I type in a password "password123!".....................................passed
@@ -228,7 +228,7 @@ And I click on the login button on login page...............................pass
 Then I should receive the error on the login page "Invalid email and/or password".passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Invalid user login 3" time="0.818">
+<testcase classname="Login" name="Invalid user login 3" time="1.347">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username ""................................................passed
 And I type in a password "".................................................passed
@@ -236,45 +236,56 @@ And I click on the login button on login page...............................pass
 Then I should receive the error on the login page "Invalid email and/or password".passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="Valid user login" time="0.895">
+<testcase classname="UserPage" name="Valid user login" time="2.262">
 <system-out><![CDATA[Given that I login as a user................................................passed
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the first account on the user page" time="1.109">
+<testcase classname="UserPage" name="I click on the first account on the user page" time="2.449">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the first account displayed.................................passed
 Then I should be redirected to the account.html.............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the edit user info button on the user-page" time="1.085">
+<testcase classname="UserPage" name="I click on the edit user info button on the user-page" time="2.478">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the edit user info button...................................passed
 Then I should be redirected to the edit-user-info.html......................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the all income button on the user-page" time="0.928">
+<testcase classname="UserPage" name="I click on the all income button on the user-page" time="6.965">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the all income button.......................................passed
 Then I should be redirected to the income.html..............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the pending transaction button on the user-page" time="1.021">
+<testcase classname="UserPage" name="I click on the pending transaction button on the user-page" time="2.539">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the pending transactions button.............................passed
 Then I should be redirected to the pending-transactions.html................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="Send valid amount of money to valid email" time="1.553">
-<system-out><![CDATA[Given that I login as a user................................................passed
+<testcase classname="UserPage" name="Send valid amount of money to valid email" time="4.404">
+<failure message="did not expect [$711.91] but found [$711.91]" type="java.lang.AssertionError"><![CDATA[Given that I login as a user................................................passed
 When I scroll down to see send money........................................passed
 And I select the first account in send money................................passed
 And I type in an email of "jd81@a.ca" into send email.......................passed
 And I type in a valid amount of "00.01" into send money.....................passed
 And I click on send money submit button.....................................passed
-]]></system-out>
+Then My first account should have less money................................failed
+
+StackTrace:
+java.lang.AssertionError: did not expect [$711.91] but found [$711.91]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failEquals(Assert.java:1417)
+	at org.testng.Assert.assertNotEqualsImpl(Assert.java:156)
+	at org.testng.Assert.assertNotEquals(Assert.java:1986)
+	at org.testng.Assert.assertNotEquals(Assert.java:2008)
+	at com.revmo.steps.UserPageSteps.myFirstAccountShouldHaveLessMoney(UserPageSteps.java:132)
+	at ✽.My first account should have less money(file:///C:/Users/chris/OneDrive/desktop/p3Test/src/test/resources/userpage.feature:42)
+]]></failure>
 </testcase>
-<testcase classname="UserPage" name="Request money from a valid email" time="1.616">
+<testcase classname="UserPage" name="Request money from a valid email" time="2.917">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I scroll down to see request money.....................................passed
 And I type in a valid email of "jd81@a.ca" into request email...............passed
@@ -283,7 +294,7 @@ And I type in a valid amount of "1" into request money......................pass
 Then I click on request money submit button.................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I logout of my account from user-page" time="1.637">
+<testcase classname="UserPage" name="I logout of my account from user-page" time="3.449">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the logout button on the user-page..........................passed
 Then I should be redirected to the index.html...............................passed

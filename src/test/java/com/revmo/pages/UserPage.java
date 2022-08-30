@@ -185,7 +185,8 @@ public class UserPage {
         myAccountsButton.click();
     }
 
-    public String getCurrentBalance(){
+    public String getCurrentBalance() throws InterruptedException {
+        Thread.sleep(500);
         return balanceWebElement.getText();
     }
     public String getOriginalBalance(){
