@@ -40,7 +40,7 @@ public class LoginSteps {
     }
 
     @And("I click on the login button on login page")
-    public void iClickOnTheLoginButtonInLogin() {
+    public void iClickOnTheLoginButtonInLogin() throws InterruptedException {
     loginPage.clickLogin();
     }
 

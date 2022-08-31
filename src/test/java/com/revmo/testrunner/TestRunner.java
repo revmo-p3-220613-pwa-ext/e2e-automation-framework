@@ -26,7 +26,7 @@ public static  String url = "http://ec2-18-188-40-149.us-east-2.compute.amazonaw
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 //uncomment for headless mode
-        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
+//        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
 
     }

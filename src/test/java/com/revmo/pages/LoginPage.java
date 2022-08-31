@@ -25,7 +25,7 @@ public class LoginPage {
     @FindBy(id="password-login-input")
     private WebElement passwordInput;
 
-    @FindBy(id="login-btn-2")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/form[1]/div[4]/div[1]/button[1]")
     private WebElement loginButton;
 
     @FindBy(id="login-btn")
@@ -49,11 +49,12 @@ public class LoginPage {
         wdw.until(ExpectedConditions.visibilityOf(passwordInput));
         passwordInput.sendKeys(password);
     }
-    public void clickLogin(){
+    public void clickLogin() throws InterruptedException {
         WebDriverWait wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
 
         wdw.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
+        Thread.sleep(500);
     }
     public void clickLoginRedirectButton(){
         WebDriverWait wdw = new WebDriverWait(driver, Duration.ofSeconds(2));

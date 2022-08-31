@@ -39,8 +39,9 @@ Feature: UserPage
     And I type in an email of "jd81@a.ca" into send email
     And I type in a valid amount of "00.01" into send money
     And I click on send money submit button
+    And I scroll back up from send money
     Then My first account should have less money
-#
+
   Scenario: Request money from a valid email
     Given that I login as a user
     When I scroll down to see request money
