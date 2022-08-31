@@ -20,28 +20,26 @@ public class UserPage {
 
     private String originalBalance;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]")
     private WebElement balanceWebElement;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/p[1]/span[2]")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/p[1]/span[2]")
     private WebElement name;
 
-    @FindBy(id="email")
-    private WebElement email;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/p[8]")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/p[8]")
     private WebElement phoneNumber;
 
-    @FindBy(id="edit-user-info-btn")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/a[1]/button[1]")
     private WebElement editUserInfoButton;
 
     @FindBy(id="hello")
     private WebElement hello;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]")
     private WebElement account1;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/span[1]/button[1]")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[2]/span[1]/button[1]")
     private WebElement allIncomeButton;
 
     @FindBy(xpath = "//button[@id='pending Transactions']")
@@ -50,10 +48,10 @@ public class UserPage {
     @FindBy(id = "sending-sending-id")
     private WebElement sendingIdDropdown;
 
-    @FindBy(id = "sending-receiving-id")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/input[1]")
     private WebElement sendMoneyEmailInput;
 
-    @FindBy(css = "#sending-amount-dollars")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/input[1]")
     private WebElement sendMoneyAmountInput;
 
     @FindBy(id = "sending-transfer-btn")
@@ -77,7 +75,7 @@ public class UserPage {
     @FindBy(id = "my-account")
     private WebElement myAccountsButton;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/span[2]")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/span[2]")
     private WebElement firstAccountNumber;
 
     @FindBy(xpath = "//span[@id=\"current-month-total-income\"]")
@@ -94,7 +92,8 @@ public class UserPage {
         loginPage.typePassword("Password123!");
         loginPage.clickLogin();
         PageFactory.initElements(driver, this);
-        wdw.until(ExpectedConditions.textToBePresentInElement(balanceWebElement, "$"));
+//        wdw.until(ExpectedConditions.textToBePresentInElement(balanceWebElement, "$"));
+        Thread.sleep(500);
         this.originalBalance = getCurrentBalance();
     }
 
@@ -125,6 +124,7 @@ public class UserPage {
     }
 
     public void clickAccount1() {
+        wdw.until(ExpectedConditions.elementToBeClickable(account1));
         account1.click();
     }
 
@@ -150,9 +150,10 @@ public class UserPage {
         sendMoneyAmountInput.sendKeys(amount);
     }
 
-    public void clickSendMoneySubmitButton(){
+    public void clickSendMoneySubmitButton() throws InterruptedException {
 
         sendMoneySubmitButton.click();
+        Thread.sleep(200);
     }
 
     public void typeRequestEmailInput(String email){
@@ -186,7 +187,8 @@ public class UserPage {
     }
 
     public String getCurrentBalance() throws InterruptedException {
-        Thread.sleep(500);
+
+        wdw.until(ExpectedConditions.visibilityOf(balanceWebElement));
         return balanceWebElement.getText();
     }
     public String getOriginalBalance(){

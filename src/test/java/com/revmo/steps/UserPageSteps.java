@@ -29,6 +29,7 @@ public class UserPageSteps {
 
     @When("I click on the first account displayed")
     public void iClickOnTheFirstAccountDisplayed() {
+
         userPage.clickAccount1();
     }
 
@@ -87,7 +88,7 @@ public class UserPageSteps {
     }
 
     @And("I click on send money submit button")
-    public void iClickOnSendMoneySubmitButton() {
+    public void iClickOnSendMoneySubmitButton() throws InterruptedException {
         userPage.clickSendMoneySubmitButton();
     }
 
@@ -127,8 +128,16 @@ public class UserPageSteps {
     @Then("My first account should have less money")
     public void myFirstAccountShouldHaveLessMoney() throws InterruptedException {
 
+//        Thread.sleep(200);
         String original = userPage.getOriginalBalance();
         String updated = userPage.getCurrentBalance();
         Assert.assertNotEquals(original, updated);
+    }
+
+    @And("I scroll back up from send money")
+    public void iScrollBackUpFromSendMoney() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,0)", "");
+        Thread.sleep(200);
     }
 }

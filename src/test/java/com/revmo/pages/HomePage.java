@@ -7,7 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import static com.revmo.testrunner.TestRunner.url;
+import static com.revmo.testrunner.TestRunner.driver;
 import java.time.Duration;
 
 public class HomePage {
@@ -24,7 +25,7 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(2));
-        driver.get("http://127.0.0.1:5501/index.html");
+        driver.get(url+"/index.html");
         PageFactory.initElements(driver, this);
     }
 
