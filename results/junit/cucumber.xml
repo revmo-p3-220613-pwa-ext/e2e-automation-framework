@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="37" time="186.565">
-<testcase classname="Accounts" name="Click on first account" time="2.038">
-<system-out><![CDATA[Given that I login as a user................................................passed
-When I click on the first account displayed.................................passed
-Then I should be redirected to the account.html.............................passed
-]]></system-out>
-</testcase>
-<testcase classname="Accounts" name="Transfer Valid amount of money to another account" time="4.064">
-<system-out><![CDATA[Given I am on the first accounts, accounts page.............................passed
-When I select the 1 account in transfer between accounts....................passed
-And I type in a valid amount of "00.01" into the transfer amount............passed
-And I click the submit transfer button......................................passed
-Then money amount should be taken from my account...........................passed
-]]></system-out>
-</testcase>
-<testcase classname="Accounts" name="I click on the User page button" time="3.222">
-<system-out><![CDATA[Given I am on the first accounts, accounts page.............................passed
-And I click on the user page button on the accounts page....................passed
-Then I should be redirected to the user-page.html...........................passed
-]]></system-out>
-</testcase>
-<testcase classname="Accounts" name="I logout from the accounts page" time="4.324">
-<system-out><![CDATA[Given I am on the first accounts, accounts page.............................passed
-When I click on the logout button on the accounts page......................passed
-Then I should be redirected to the index.html...............................passed
-]]></system-out>
-</testcase>
-<testcase classname="EditUserInfo" name="Valid Updates For user information" time="4.784">
+<testsuite errors="0" failures="2" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="46" time="224.546">
+<testcase classname="EditUserInfo" name="Valid Updates For user information" time="4.466">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I type in a first name of "Bruce"......................................passed
 And I type in a valid last name of "Wayne"..................................passed
@@ -37,7 +11,7 @@ But the name should now match "Bruce""Wayne"................................pass
 And the phone number should match "999-999-9999"............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Valid Updates For user information 2" time="4.103">
+<testcase classname="EditUserInfo" name="Valid Updates For user information 2" time="4.424">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I type in a first name of "Barry"......................................passed
 And I type in a valid last name of "Allen"..................................passed
@@ -48,7 +22,7 @@ But the name should now match "Barry""Allen"................................pass
 And the phone number should match "888-888-8888"............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Valid Updates For user information 3" time="4.128">
+<testcase classname="EditUserInfo" name="Valid Updates For user information 3" time="4.317">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I type in a first name of "Peter"......................................passed
 And I type in a valid last name of "Parker".................................passed
@@ -59,38 +33,38 @@ But the name should now match "Peter""Parker"...............................pass
 And the phone number should match "777-777-7777"............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Logout from edit user info page" time="3.371">
+<testcase classname="EditUserInfo" name="Logout from edit user info page" time="3.577">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I click on the logout button on the edit user info page................passed
 Then I should be redirected to the index.html...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="EditUserInfo" name="Go back to the user page" time="2.156">
+<testcase classname="EditUserInfo" name="Go back to the user page" time="2.241">
 <system-out><![CDATA[Given I am on the edit user info page.......................................passed
 When I click on the User page button on the edit user info page.............passed
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="I login as an employee" time="1.256">
+<testcase classname="Employee" name="I login as an employee" time="1.301">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 Then I should be redirected to the employee.html............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="I input a customers email while logged in as an employee" time="3.03">
+<testcase classname="Employee" name="I input a customers email while logged in as an employee" time="3.005">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
 Then A table should generate with accounts for "jd80@a.ca"..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="I input a customers email while logged in as an employee 2" time="3.177">
+<testcase classname="Employee" name="I input a customers email while logged in as an employee 2" time="3.12">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd81@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
 Then A table should generate with accounts for "jd81@a.ca"..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Add savings account to user" time="6.181">
+<testcase classname="Employee" name="Add savings account to user" time="6.235">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd81@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -99,7 +73,7 @@ And I click the add account submit button...................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Add checking account to user" time="6.213">
+<testcase classname="Employee" name="Add checking account to user" time="6.23">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd81@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -108,7 +82,7 @@ And I click the add account submit button...................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Link Account to user" time="5.949">
+<testcase classname="Employee" name="Link Account to user" time="6.004">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -117,7 +91,7 @@ And I click on the link account button......................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Link Account to user 2" time="5.97">
+<testcase classname="Employee" name="Link Account to user 2" time="6.054">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -126,7 +100,7 @@ And I click on the link account button......................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Link Account to user 3" time="5.895">
+<testcase classname="Employee" name="Link Account to user 3" time="5.901">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -135,7 +109,7 @@ And I click on the link account button......................................pass
 Then a new account should appear............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Unlink first Account from user" time="5.414">
+<testcase classname="Employee" name="Unlink first Account from user" time="5.379">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -144,7 +118,7 @@ And I click on the unlink account button....................................pass
 Then the account should not be listed should be removed.....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Unlink first Account from user 2" time="5.439">
+<testcase classname="Employee" name="Unlink first Account from user 2" time="5.413">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -153,7 +127,7 @@ And I click on the unlink account button....................................pass
 Then the account should not be listed should be removed.....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Unlink first Account from user 3" time="5.662">
+<testcase classname="Employee" name="Unlink first Account from user 3" time="5.392">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -162,13 +136,26 @@ And I click on the unlink account button....................................pass
 Then the account should not be listed should be removed.....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Logout from employee page" time="3.13">
-<system-out><![CDATA[Given that I login as an employee...........................................passed
-When I click on logout on employee page.....................................passed
-Then I should be redirected to the index.html...............................passed
-]]></system-out>
+<testcase classname="Employee" name="Logout from employee page" time="4.316">
+<failure message="Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (3ea97513eaf487d259d88c181af7afa5)] -&gt; xpath: /html[1]/body[1]/nav[1]/div[2]/div[2]/div[1]/a[2]] (tried for 2 second(s) with 500 milliseconds interval)&#10;Build info: version: '4.3.0', revision: 'a4995e2c09*'&#10;System info: host: 'DESKTOP-MAP3F4T', ip: '10.0.0.199', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_341'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.102, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: C:\Users\chris\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61798}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61798/devtoo..., se:cdpVersion: 104.0.5112.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 3ea97513eaf487d259d88c181af7afa5" type="org.openqa.selenium.TimeoutException"><![CDATA[Given that I login as an employee...........................................passed
+When I click on logout on employee page.....................................failed
+Then I should be redirected to the index.html...............................skipped
+
+StackTrace:
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (3ea97513eaf487d259d88c181af7afa5)] -> xpath: /html[1]/body[1]/nav[1]/div[2]/div[2]/div[1]/a[2]] (tried for 2 second(s) with 500 milliseconds interval)
+Build info: version: '4.3.0', revision: 'a4995e2c09*'
+System info: host: 'DESKTOP-MAP3F4T', ip: '10.0.0.199', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_341'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.102, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: C:\Users\chris\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61798}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61798/devtoo..., se:cdpVersion: 104.0.5112.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3ea97513eaf487d259d88c181af7afa5
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.revmo.pages.EmployeePage.clickLogoutButton(EmployeePage.java:195)
+	at com.revmo.steps.EmployeeSteps.iClickOnLogoutOnEmployeePage(EmployeeSteps.java:89)
+	at ✽.I click on logout on employee page(file:///C:/Users/chris/OneDrive/Desktop/Project%203/p3Test/src/test/resources/employee.feature:61)
+]]></failure>
 </testcase>
-<testcase classname="Employee" name="Access Trx information for an certain account" time="3.664">
+<testcase classname="Employee" name="Access Trx information for an certain account" time="3.115">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -177,7 +164,7 @@ And I click back............................................................pass
 Then I should be at the original table on employees.........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Employee" name="Transfer money for user" time="3.761">
+<testcase classname="Employee" name="Transfer money for user" time="3.791">
 <system-out><![CDATA[Given that I login as an employee...........................................passed
 When I type in a valid email of "jd80@a.ca" into set active user............passed
 And I click on the search button in the form set active user................passed
@@ -188,7 +175,64 @@ And I click the submit button fot transfer between accounts.................pass
 Then both accounts will have a different balance............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Valid user login" time="1.23">
+<testcase classname="Home" name="Valid user login from home page" time="2.551">
+<system-out><![CDATA[Given I am at the home page.................................................passed
+When I type in a username "jd80@a.ca" on the home page......................passed
+And I type in a password "Password123!" on the home page....................passed
+And I click on the login button on home page................................passed
+Then I should be redirected to the user-page.html...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home" name="Valid user login from home page 2" time="5.378">
+<system-out><![CDATA[Given I am at the home page.................................................passed
+When I type in a username "jd81@a.ca" on the home page......................passed
+And I type in a password "Password123!" on the home page....................passed
+And I click on the login button on home page................................passed
+Then I should be redirected to the user-page.html...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home" name="Valid user login from home page 3" time="2.381">
+<system-out><![CDATA[Given I am at the home page.................................................passed
+When I type in a username "jd800@a.ca" on the home page.....................passed
+And I type in a password "Password123!" on the home page....................passed
+And I click on the login button on home page................................passed
+Then I should be redirected to the employee.html............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home" name="Invalid user login" time="2.057">
+<system-out><![CDATA[Given I am at the home page.................................................passed
+When I type in a username "j80@a.ca" on the home page.......................passed
+And I type in a password "Password123!" on the home page....................passed
+And I click on the login button on home page................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home" name="Invalid user login 2" time="2.118">
+<system-out><![CDATA[Given I am at the home page.................................................passed
+When I type in a username "jd81@a.ca" on the home page......................passed
+And I type in a password "password123!" on the home page....................passed
+And I click on the login button on home page................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home" name="Invalid user login 3" time="2.008">
+<system-out><![CDATA[Given I am at the home page.................................................passed
+When I type in a username "jd80@a.ca" on the home page......................passed
+And I type in a password "" on the home page................................passed
+And I click on the login button on home page................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home" name="Invalid user login 4" time="1.918">
+<system-out><![CDATA[Given I am at the home page.................................................passed
+When I type in a username "" on the home page...............................passed
+And I type in a password "Password123!" on the home page....................passed
+And I click on the login button on home page................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Income" name="Load the default income" time="2.37">
+<system-out><![CDATA[Given that I login as a user................................................passed
+When I click on the all income button.......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login" name="Valid user login" time="1.294">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd80@a.ca".......................................passed
 And I type in a password "Password123!".....................................passed
@@ -196,7 +240,7 @@ And I click on the login button on login page...............................pass
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Valid user login 2" time="1.227">
+<testcase classname="Login" name="Valid user login 2" time="1.261">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd81@a.ca".......................................passed
 And I type in a password "Password123!".....................................passed
@@ -204,7 +248,7 @@ And I click on the login button on login page...............................pass
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Valid user login 3" time="1.248">
+<testcase classname="Login" name="Valid user login 3" time="1.298">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd800@a.ca"......................................passed
 And I type in a password "Password123!".....................................passed
@@ -212,7 +256,7 @@ And I click on the login button on login page...............................pass
 Then I should be redirected to the employee.html............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Invalid user login" time="1.185">
+<testcase classname="Login" name="Invalid user login" time="1.195">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "j80@a.ca"........................................passed
 And I type in a password "Password123!".....................................passed
@@ -220,7 +264,7 @@ And I click on the login button on login page...............................pass
 Then I should receive the error on the login page "Invalid email and/or password".passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Invalid user login 2" time="1.203">
+<testcase classname="Login" name="Invalid user login 2" time="1.212">
 <system-out><![CDATA[Given I am at the login page................................................passed
 When I type in a username "jd81@a.ca".......................................passed
 And I type in a password "password123!".....................................passed
@@ -228,57 +272,114 @@ And I click on the login button on login page...............................pass
 Then I should receive the error on the login page "Invalid email and/or password".passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Invalid user login 3" time="3.293">
-<failure message="Expected condition failed: waiting for visibility of element located by By.id: error-messages (tried for 2 second(s) with 500 milliseconds interval)&#10;Build info: version: '4.3.0', revision: 'a4995e2c09*'&#10;System info: host: 'DESKTOP-MAP3F4T', ip: '10.0.0.199', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_341'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.102, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: C:\Users\chris\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54895}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54895/devtoo..., se:cdpVersion: 104.0.5112.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 4d7db1e21b6e24b32a14b97cd3d4f7e8" type="org.openqa.selenium.TimeoutException"><![CDATA[Given I am at the login page................................................passed
-When I type in a username ""................................................passed
+<testcase classname="Login" name="Invalid user login 3" time="1.208">
+<system-out><![CDATA[Given I am at the login page................................................passed
+When I type in a username "jd80@a.ca".......................................passed
 And I type in a password "".................................................passed
 And I click on the login button on login page...............................passed
-Then I should receive the error on the login page "Invalid email and/or password".failed
+Then I should receive the error on the login page "Invalid email and/or password".passed
+]]></system-out>
+</testcase>
+<testcase classname="Login" name="Invalid user login 4" time="1.22">
+<system-out><![CDATA[Given I am at the login page................................................passed
+When I type in a username ""................................................passed
+And I type in a password "Password123!".....................................passed
+And I click on the login button on login page...............................passed
+Then I should receive the error on the login page "Invalid email and/or password".passed
+]]></system-out>
+</testcase>
+<testcase classname="PendingTransaction" name="Set up 2 transactions for Approve/Deny Request" time="2.707">
+<system-out><![CDATA[Given that I login as a different user......................................passed
+When I scroll down to see request money.....................................passed
+And I type in a valid email of "jd80@a.ca" into request email...............passed
+And I select the first account in request money.............................passed
+And I type in a valid amount of "00.01" into request money..................passed
+Then I click on request money submit button.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="PendingTransaction" name="Set up 2 transactions for Approve/Deny Request 2" time="2.748">
+<system-out><![CDATA[Given that I login as a different user......................................passed
+When I scroll down to see request money.....................................passed
+And I type in a valid email of "jd80@a.ca" into request email...............passed
+And I select the first account in request money.............................passed
+And I type in a valid amount of "00.01" into request money..................passed
+Then I click on request money submit button.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="PendingTransaction" name="Deny First Request" time="3.77">
+<failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/section[1]/div[1]/div[2]/div[1]/h2[1]/span[1]&quot;}&#10;  (Session info: chrome=104.0.5112.102)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.3.0', revision: 'a4995e2c09*'&#10;System info: host: 'DESKTOP-MAP3F4T', ip: '10.0.0.199', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_341'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [8e6785bb9d97892b894de0b4082288ec, findElement {using=xpath, value=/html[1]/body[1]/section[1]/div[1]/div[2]/div[1]/h2[1]/span[1]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.102, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: C:\Users\chris\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62300}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:62300/devtoo..., se:cdpVersion: 104.0.5112.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 8e6785bb9d97892b894de0b4082288ec" type="org.openqa.selenium.NoSuchElementException"><![CDATA[Given that I am on the pending transactions page............................passed
+And I click on the deny transaction button..................................passed
+Then the amount in my account should remain the same........................failed
 
 StackTrace:
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: error-messages (tried for 2 second(s) with 500 milliseconds interval)
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html[1]/body[1]/section[1]/div[1]/div[2]/div[1]/h2[1]/span[1]"}
+  (Session info: chrome=104.0.5112.102)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.3.0', revision: 'a4995e2c09*'
 System info: host: 'DESKTOP-MAP3F4T', ip: '10.0.0.199', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_341'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.102, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: C:\Users\chris\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54895}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54895/devtoo..., se:cdpVersion: 104.0.5112.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 4d7db1e21b6e24b32a14b97cd3d4f7e8
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.revmo.pages.LoginPage.getErrorMessages(LoginPage.java:68)
-	at com.revmo.steps.LoginSteps.iShouldReceiveTheErrorOnTheLoginPage(LoginSteps.java:50)
-	at ✽.I should receive the error on the login page "Invalid email and/or password"(file:///C:/Users/chris/OneDrive/Desktop/Project%203/p3Test/src/test/resources/login.feature:21)
+Command: [8e6785bb9d97892b894de0b4082288ec, findElement {using=xpath, value=/html[1]/body[1]/section[1]/div[1]/div[2]/div[1]/h2[1]/span[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.102, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: C:\Users\chris\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62300}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:62300/devtoo..., se:cdpVersion: 104.0.5112.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8e6785bb9d97892b894de0b4082288ec
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:569)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:387)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:379)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy27.getText(Unknown Source)
+	at com.revmo.pages.PendingTransactionPage.getBalance(PendingTransactionPage.java:77)
+	at com.revmo.steps.PendingTransactionsSteps.theAmountInMyAccountShouldRemainTheSame(PendingTransactionsSteps.java:37)
+	at ✽.the amount in my account should remain the same(file:///C:/Users/chris/OneDrive/Desktop/Project%203/p3Test/src/test/resources/pendingTransaction.feature:17)
 ]]></failure>
 </testcase>
-<testcase classname="UserPage" name="Valid user login" time="1.765">
+<testcase classname="PendingTransaction" name="Accept First Request" time="3.717">
+<system-out><![CDATA[Given that I am on the pending transactions page............................passed
+And I click on the approve transaction button...............................passed
+Then the amount in my account should not remain the same....................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserPage" name="Valid user login" time="2.16">
 <system-out><![CDATA[Given that I login as a user................................................passed
 Then I should be redirected to the user-page.html...........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the first account on the user page" time="1.936">
+<testcase classname="UserPage" name="I click on the first account on the user page" time="2.378">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the first account displayed.................................passed
 Then I should be redirected to the account.html.............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the edit user info button on the user-page" time="1.969">
+<testcase classname="UserPage" name="I click on the edit user info button on the user-page" time="2.362">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the edit user info button...................................passed
 Then I should be redirected to the edit-user-info.html......................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the all income button on the user-page" time="1.952">
+<testcase classname="UserPage" name="I click on the all income button on the user-page" time="2.321">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the all income button.......................................passed
 Then I should be redirected to the income.html..............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I click on the pending transaction button on the user-page" time="1.903">
+<testcase classname="UserPage" name="I click on the pending transaction button on the user-page" time="2.424">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the pending transactions button.............................passed
 Then I should be redirected to the pending-transactions.html................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="Send valid amount of money to valid email" time="3.429">
+<testcase classname="UserPage" name="Send valid amount of money to valid email" time="3.713">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I scroll down to see send money........................................passed
 And I select the first account in send money................................passed
@@ -289,7 +390,7 @@ And I scroll back up from send money........................................pass
 Then My first account should have less money................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="Request money from a valid email" time="2.563">
+<testcase classname="UserPage" name="Request money from a valid email" time="2.751">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I scroll down to see request money.....................................passed
 And I type in a valid email of "jd81@a.ca" into request email...............passed
@@ -298,7 +399,7 @@ And I type in a valid amount of "1" into request money......................pass
 Then I click on request money submit button.................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="UserPage" name="I logout of my account from user-page" time="3.51">
+<testcase classname="UserPage" name="I logout of my account from user-page" time="4.398">
 <system-out><![CDATA[Given that I login as a user................................................passed
 When I click on the logout button on the user-page..........................passed
 Then I should be redirected to the index.html...............................passed

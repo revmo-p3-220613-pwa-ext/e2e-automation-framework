@@ -1,7 +1,6 @@
 package com.revmo.steps;
 
-import com.revmo.pages.EmployeePage;
-import com.revmo.pages.UserPage;
+import com.revmo.pages.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,14 +18,37 @@ import static com.revmo.testrunner.TestRunner.url;
 
 public class UserPageSteps {
     public UserPage userPage;
+    public WebDriverWait wdw;
+    public PendingTransactionPage pendingTransactionPage;
 
     @Given("that I login as a user")
     public void loginAsUser() throws InterruptedException {
         driver.get(url+"/login.html");
 //        wdw.until(ExpectedConditions.urlContains("login.html"));
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeUsername("jd80@a.ca");
+        loginPage.typePassword("Password123!");
+        loginPage.clickLogin();
+//        wdw.until(ExpectedConditions.urlContains("page.html"));
+        Thread.sleep(400);
+
         userPage = new UserPage(driver);
     }
+    @Given("that I login as a different user")
+    public void loginAsDifferentUser() throws InterruptedException {
 
+
+        driver.get(url+"/login.html");
+//        wdw.until(ExpectedConditions.urlContains("login.html"));
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeUsername("jd81@a.ca");
+        loginPage.typePassword("Password123!");
+        loginPage.clickLogin();
+//        wdw.until(ExpectedConditions.urlContains("page.html"));
+        Thread.sleep(400);
+        userPage = new UserPage(driver);
+
+    }
     @When("I click on the first account displayed")
     public void iClickOnTheFirstAccountDisplayed() {
 
@@ -140,4 +162,17 @@ public class UserPageSteps {
         js.executeScript("window.scrollBy(0,0)", "");
         Thread.sleep(200);
     }
+
+
+
+    @And("I click on the navbar login button from the home page")
+    public void iClickOnTheNavbarLoginButtonFromTheHomePage() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.typeEmail("jd80@a.ca");
+        homePage.typePassword("Password123!");
+        homePage.clickLogin();
+    }
+
+
+
 }

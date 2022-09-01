@@ -1,6 +1,7 @@
 package com.revmo.steps;
 
 import com.revmo.pages.EditUserInfoPage;
+import com.revmo.pages.LoginPage;
 import com.revmo.pages.UserPage;
 import com.revmo.testrunner.TestRunner;
 import io.cucumber.java.en.*;
@@ -66,6 +67,10 @@ public class EditUserInfoSteps {
     @Given("I am on the edit user info page")
     public void iAmOnTheEditUserInfoPage() throws InterruptedException {
         driver.get(url+"/login.html");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeUsername("jd80@a.ca");
+        loginPage.typePassword("Password123!");
+        loginPage.clickLogin();
         userPage = new UserPage(driver);
         this.name = userPage.getName();
         userPage.clickEditUserInfoButton();
@@ -103,8 +108,10 @@ public class EditUserInfoSteps {
     }
 
     @When("I click on the logout button on the edit user info page")
-    public void iClickOnTheLogoutButtonOnTheEditUserInfoPage() {
+    public void iClickOnTheLogoutButtonOnTheEditUserInfoPage() throws InterruptedException {
         editUserInfoPage.clickLogoutButton();
+        Thread.sleep(200);
+
     }
 
     @When("I click on the User page button on the edit user info page")

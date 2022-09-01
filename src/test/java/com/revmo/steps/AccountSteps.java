@@ -23,6 +23,7 @@ public class AccountSteps {
         driver.get(url+"/login.html");
 
         accountPage = new AccountPage(driver);
+        Thread.sleep(500);
     }
 
     @And("I select the {int} account in transfer between accounts")

@@ -13,7 +13,9 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
 @CucumberOptions(glue="com.revmo.steps", features={"src/test/resources/login.feature", "src/test/resources/employee.feature",
-        "src/test/resources/userpage.feature", "src/test/resources/accounts.feature", "src/test/resources/editUsersInfo.feature"},
+        "src/test/resources/userpage.feature", "src/test/resources/accounts.feature", "src/test/resources/editUsersInfo.feature",
+        "src/test/resources/register.feature", "src/test/resources/pendingTransaction.feature", "src/test/resources/income.feature",
+        "src/test/resources/home.feature"},
         plugin ={"pretty", "html: results/html", "json:results/json/results.json", "junit:results/junit/cucumber.xml"} )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -26,7 +28,7 @@ public static  String url = "http://ec2-18-188-40-149.us-east-2.compute.amazonaw
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 //uncomment for headless mode
-//        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
+        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
 
     }

@@ -28,7 +28,7 @@ public class AccountPage {
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[3]/span[1]")
     private WebElement accountType;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[4]/span[1]")
+    @FindBy(xpath = "//span[@id='account-amount']")
     private WebElement accountBalance;
 
     @FindBy(id = "transfer-receiving-id")
@@ -55,6 +55,10 @@ public class AccountPage {
     public AccountPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(10));
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeUsername("jd80@a.ca");
+        loginPage.typePassword("Password123!");
+        loginPage.clickLogin();
         UserPage userPage = new UserPage(driver);
         userPage.clickAccount1();
         PageFactory.initElements(driver, this);

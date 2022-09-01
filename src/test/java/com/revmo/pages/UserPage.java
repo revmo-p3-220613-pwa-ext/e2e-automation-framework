@@ -69,7 +69,7 @@ public class UserPage {
     @FindBy(id = "request-transfer-btn")
     private WebElement requestTransferSubmitButton;
 
-    @FindBy(id = "logout-btn")
+    @FindBy(xpath = "/html[1]/body[1]/nav[1]/div[2]/div[2]/div[1]/a[2]")
     private WebElement logoutButton;
 
     @FindBy(id = "my-account")
@@ -87,12 +87,7 @@ public class UserPage {
     public UserPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         this.wdw = new WebDriverWait(driver, Duration.ofSeconds(10));
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.typeUsername("jd80@a.ca");
-        loginPage.typePassword("Password123!");
-        loginPage.clickLogin();
         PageFactory.initElements(driver, this);
-//        wdw.until(ExpectedConditions.textToBePresentInElement(balanceWebElement, "$"));
         Thread.sleep(500);
         this.originalBalance = getCurrentBalance();
     }
@@ -180,6 +175,7 @@ public class UserPage {
         Thread.sleep(500);
         wdw.until(ExpectedConditions.visibilityOf(logoutButton));
         logoutButton.click();
+        Thread.sleep(500);
     }
 
     public void clickMyAccountsButton(){

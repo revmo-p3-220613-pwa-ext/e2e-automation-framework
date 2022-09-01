@@ -40,7 +40,7 @@ public class IncomePage {
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]")
     private WebElement firstAccountDisplayedIncomeAmount;
 
-    @FindBy(id = "logout-btn")
+    @FindBy(xpath = "/html[1]/body[1]/nav[1]/div[2]/div[2]/div[1]/a[2]")
     private WebElement logoutButton;
 
     @FindBy(id = "my-account")
