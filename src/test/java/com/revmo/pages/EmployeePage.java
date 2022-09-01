@@ -190,7 +190,7 @@ public class EmployeePage {
         unlinkButton.click();
     }
     public void clickLogoutButton() throws InterruptedException {
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         Thread.sleep(500);
         wdw.until(ExpectedConditions.visibilityOf(logoutButton));
         logoutButton.click();

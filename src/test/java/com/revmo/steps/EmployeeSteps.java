@@ -87,6 +87,7 @@ public class EmployeeSteps {
     public void iClickOnLogoutOnEmployeePage() throws InterruptedException {
 
         employeePage.clickLogoutButton();
+        Thread.sleep(200);
     }
 
 

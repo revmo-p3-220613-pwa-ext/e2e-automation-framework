@@ -28,7 +28,7 @@ public class RedirectedSteps {
     }
     @Then("I should be redirected to the index.html")
     public void iShouldBeRedirectedToTheIndexHtml() throws InterruptedException {
-//        Thread.sleep(500);
+        Thread.sleep(1000);
     wdw.until(ExpectedConditions.urlContains("index.html"));
         String actual = driver.getCurrentUrl();
         String expected = url + "/index.html";
@@ -57,6 +57,14 @@ public class RedirectedSteps {
         wdw.until(ExpectedConditions.urlContains("income.html"));
         String actual = driver.getCurrentUrl();
         String expected = url + "/income.html";
+        Assert.assertEquals(actual, expected);
+    }
+    @Then("I should be redirected to the login.html")
+    public void iShouldBeRedirectedToTheLoginHtml() throws InterruptedException {
+//        wdw.until(ExpectedConditions.urlContains("login.html"));
+        Thread.sleep(500);
+        String actual = driver.getCurrentUrl();
+        String expected = url + "/login.html";
         Assert.assertEquals(actual, expected);
     }
     @Then("I should be redirected to the edit-user-info.html")

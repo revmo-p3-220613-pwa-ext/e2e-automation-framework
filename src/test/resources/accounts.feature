@@ -3,7 +3,7 @@ Feature: Accounts
     Given that I login as a user
     When I click on the first account displayed
     Then I should be redirected to the account.html
-
+#
 #  Scenario: Click on first account and check monthly account income
 #    Given I am on the first accounts, accounts page
 #    Then I should see the account current month income on the account page

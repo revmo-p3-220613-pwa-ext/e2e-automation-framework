@@ -19,8 +19,16 @@ public class HomePage {
     @FindBy(id="burger")
     private WebElement burger;
 
-    @FindBy(id="login-btn")
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[3]/div[1]/button[1]")
     private WebElement loginButton;
+
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/p[1]/input[1]")
+    private WebElement emailInput;
+
+    @FindBy(xpath = "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/p[1]/input[1]")
+    private WebElement passwordInput;
+    @FindBy(xpath = "//strong[contains(text(),'Log in')]")
+    private WebElement navbarLoginButton;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -34,8 +42,18 @@ public class HomePage {
     }
 
     public void clickLogin() {
-        wdw.until(ExpectedConditions.presenceOfElementLocated(By.id("login-btn")));
+//        wdw.until(ExpectedConditions.presenceOfElementLocated(By.id("login-btn")));
         loginButton.click();
+    }
+    public void clickNavbarLoginButton() throws InterruptedException {
+        Thread.sleep(800);
+        navbarLoginButton.click();
+    }
+    public void typeEmail(String email){
+        emailInput.sendKeys(email);
+    }
+    public void typePassword(String password){
+        passwordInput.sendKeys(password);
     }
 
 }
